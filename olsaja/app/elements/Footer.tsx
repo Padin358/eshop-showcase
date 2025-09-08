@@ -2,7 +2,7 @@ import { footerData } from "~/data"
 import { Facebook, Instagram, Youtube } from "lucide-react"
 
 const Footer = () => {
-  return <div className="w-full bg-primary p-3 text-textlight mt-32">
+  return <div className="w-full bg-primary p-3 text-textlight">
     <div className="mx-auto text-center my-4">
       <img src="../img/bizon_W_T_NOBG.png" alt="" className="w-32 mx-auto"/>
       <p className="italic scale-105 -mt-3.5">„Síla prérie v každém doušku.“</p>

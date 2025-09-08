@@ -7,6 +7,11 @@ const Product = ({name, image, variants, serial, price}: productProps) => {
   if (!variants) variants = 1
   if (!serial) serial = "404 DATA NENALEZENA"
   if (!price) price = NaN
+  let button = "Do Košíku"
+
+  function buttonFun() { if (serial === "S11" || serial === "Sspecial") location.href = `?${serial}` }
+
+  if (serial === "S11" || serial === "Sspecial") button = "Varianty"
 
   return <>
     <div className="hover:scale-95 hover:border hover:border-primary transition-all rounded-2xl duration-300 cursor-auto scale-90">
@@ -23,7 +28,7 @@ const Product = ({name, image, variants, serial, price}: productProps) => {
             <p className="text-lg">Počet variant: {variants}</p>
             <p className="text-xs">Inventární číslo: {serial}</p>
           </div>
-          <button className="font-semibold text-xl text-textlight bg-primary p-2 rounded-lg cursor-pointer hover:bg-primarydark/90 transition-all duration-200">Do Košíku</button>
+          <button className="font-semibold text-xl text-textlight bg-primary p-2 rounded-lg cursor-pointer hover:bg-primarydark/90 transition-all duration-200" onClick={buttonFun}>{button}</button>
         </div>
       </div>
     </div>

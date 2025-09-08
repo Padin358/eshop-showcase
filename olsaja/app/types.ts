@@ -10,7 +10,7 @@ export type productProps = {
   image?: string
   variants?: number
   serial?: any
-  price?: number
+  price?: any
 }
 
 export type prodPageProps = {

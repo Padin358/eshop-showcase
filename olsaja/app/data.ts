@@ -1,8 +1,10 @@
 export const products = [
-  {name: "Bizon °11", image: "../img/products/11.jpg", variants: 1, serial: "11", price: 35, desc: "Tradiční český ležák s jemnou hořkostí."},
-  {name: "Prairie IPA °14", image: "../img/products/14.jpg", variants: 1, serial: "14", price: 43, desc: "Moderní IPA s citrusovým aroma, inspirované americkou prérií."},
-  {name: "Dark Horn Stout 13°", image: "../img/products/13.jpg", variants: 1, serial: "13", price: 39, desc: "Hutný tmavý speciál s nádechem kávy a čokolády."},
-  {name: "Limitka: Bizonova Jízda", image: "../img/products/special.jpg", variants: 1, serial: "special", price: 36, desc: "Každý rok jiný speciál, letos pšeničné pivo s koriandrem."},
+  {name: "Bizon °11", image: "../img/products/11.jpg", variants: 1, serial: "11", price: 26, desc: "Tradiční český ležák s jemnou hořkostí."},
+  {name: "Prairie IPA °14", image: "../img/products/14.jpg", variants: 1, serial: "14", price: 33, desc: "Moderní IPA s citrusovým aroma, inspirované americkou prérií."},
+  {name: "Dark Horn Stout 13°", image: "../img/products/13.jpg", variants: 1, serial: "13", price: 30, desc: "Hutný tmavý speciál s nádechem kávy a čokolády."},
+  {name: "Limitka: Bizonova Jízda", image: "../img/products/special.jpg", variants: 1, serial: "special", price: 29, desc: "Letos pšeničné pivo s koriandrem."},
+  {name: "SUD Bizon °11", image: "../img/products/11.jpg", variants: 3, serial: "S11", price: "od 780", desc: "Tradiční český ležák s jemnou hořkostí."},
+  {name: "SUD Limitka: Bizonova Jízda", image: "../img/products/special.jpg", variants: 3, serial: "Sspecial", price: "od 870", desc: "Letos pšeničné pivo s koriandrem."},
 ]
 
 export const infoCards = [
@@ -31,3 +33,17 @@ export const carousel3Data = [
 export const carousel4Data = [
   "../img/products/special.jpg", "../img/products/11.jpg", "../img/products/11.jpg", "../img/products/11.jpg", "../img/products/11.jpg"
 ]
+export const carousel5Data = [
+  "../img/products/special.jpg"
+]
+export const carousel6Data = [
+  "../img/products/special.jpg"
+]
+
+export const S11 = {
+  variant1: "15l", price1: "780", variant2: "30l", price2: "1410", variant3: "50l", price3: "2450"
+}
+
+export const Sspecial = {
+  variant1: "30l", price1: "1590", variant2: "50l", price2: "2750"
+}
