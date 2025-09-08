@@ -204,19 +204,22 @@ const ProductPage = ({data}: prodPageProps) => {
             <Carousel slides={carousel6Data} />
           </div>
           <div className="p-5 text-right w-128">
-            <p className="text-3xl font-extrabold text-primary">{products[4].name}</p>
+            <p className="text-3xl font-extrabold text-primary">{products[5].name}</p>
             <p className="text-2xl font-extrabold text-primary">{price} Kč</p>
             <div className="text-left mt-8">
-              <p className="text-xl">Počet variant: {products[4].variants}</p>
-              <p className="text-xl">Inv. číslo: {products[4].serial}</p>
+              <p className="text-xl">Počet variant: {products[5].variants}</p>
+              <p className="text-xl">Inv. číslo: {products[5].serial}</p>
             </div>
             <div className="mt-8">
-              <p className="text-xl text-center font-semibold">{products[4].desc}</p>
+              <p className="text-xl text-center font-semibold">{products[5].desc}</p>
             </div>
             <div className="flex flex-row flex-wrap gap-4 justify-evenly mt-8 text-center">
               <div className="flex flex-row flex-wrap gap-3 justify-center">
                 <button className={classes30} onClick={buttonFunSs_30}>30l</button>
                 <button className={classes50} onClick={buttonFunSs_50}>50l</button>
+              </div>
+              <div className="flex items-center">
+                <input type="number" name="Počet" id="" className="w-20 h-10 bg-gray-200 p-3 rounded-xl" min={1} max={50}/>
               </div>
               <button className="font-semibold text-xl text-textlight bg-primary p-2 rounded-lg cursor-pointer hover:bg-primarydark/90 transition-all duration-200">Do Košíku</button>
             </div>

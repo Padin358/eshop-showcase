@@ -9,11 +9,11 @@ const AnimatedLogo = () => {
 
     const timer2 = setTimeout(() => {
       setBizonSource("../img/bizon_NOT_NOBG.png");
-      setbizonClass(`w-64 mx-auto transition-all duration-1000 hover:scale-110 hover:rotate-10 opacity-100 drop-shadow-primary drop-shadow-xl`)
+      setbizonClass(`w-64 mx-auto transition-all duration-1000 hover:scale-110 hover:rotate-10 opacity-100 drop-shadow-primary drop-shadow-lg`)
     }, 4000);
 
     const timer3 = setTimeout(() => {
-      setbizonClass("w-64 mx-auto transition-all duration-1000 opacity-0 drop-shadow-primary drop-shadow-xl")
+      setbizonClass("w-64 mx-auto transition-all duration-1000 opacity-0 drop-shadow-primary drop-shadow-lg")
     }, 3000)
 
     return () => {

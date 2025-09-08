@@ -41,9 +41,9 @@ export const carousel6Data = [
 ]
 
 export const S11 = {
-  variant1: "15l", price1: "780", variant2: "30l", price2: "1410", variant3: "50l", price3: "2450"
+  variant1: "15l", price1: "780", variant2: "30l", price2: "1300", variant3: "50l", price3: "2200"
 }
 
 export const Sspecial = {
-  variant1: "30l", price1: "1590", variant2: "50l", price2: "2750"
+  variant1: "30l", price1: "1450", variant2: "50l", price2: "2500"
 }

@@ -26,3 +26,23 @@ export type infoCardProps = {
 export type carouselProps = {
   serial: string
 }
+
+export interface Product {
+  id: string
+  name: string
+  price: number
+  desc: string
+  image: string
+}
+
+export interface CartItem {
+  product: Product
+  quantity: number
+}
+
+export interface CartContextType {
+  cartItems: CartItem[]
+  addToCart: (product: Product) => void
+  removeFromCart: (productId: string) => void
+  clearCart: () => void
+}
