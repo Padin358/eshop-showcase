@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/home"; 
 import Navbar from "~/elements/Navbar";
 import Footer from "~/elements/Footer";
 import ProductList from "~/elements/ProductList";

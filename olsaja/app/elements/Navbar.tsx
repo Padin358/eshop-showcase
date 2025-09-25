@@ -1,6 +1,6 @@
 import type { navbarProps } from "~/types"
-import ThemeToggle from "./ThemeToggle"
-
+import { ShoppingCart } from "lucide-react"
+import { cartNumFunction } from "~/CartContext"
 
 const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
   if (!btn1) btn1 = "#"
@@ -18,9 +18,10 @@ const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
         <a href={btn3} className="font-semibold after:block after:origin-bottom after:scale-x-0 after:border-b-3 after:border-b-textlight after:transition-all hover:after:scale-x-120 after:ease-in-out after:duration-200 hover:scale-110 transition-all duration-200 hover:font-bold">Kontakt</a>
         <a href={btn4} className="font-semibold after:block after:origin-bottom after:scale-x-0 after:border-b-3 after:border-b-textlight after:transition-all hover:after:scale-x-120 after:ease-in-out after:duration-200 hover:scale-110 transition-all duration-200 hover:font-bold">E-Shop</a>
       </div>
-      <div className="">
-
-      </div>
+      <a className="flex flex-between gap-1.5">
+        <p className="">0</p>
+        <ShoppingCart />
+      </a>
     </div>
   </>
 }
