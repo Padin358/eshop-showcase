@@ -1,14 +1,29 @@
 import type { navbarProps } from "~/types"
 import { ShoppingCart } from "lucide-react"
-import { cartNumFunction } from "~/CartContext"
-import { useEffect, useState } from "react"
+import { useEffect, useState, createContext, useContext } from "react"
+
+const CartNumContext = createContext<any>(null)
+
+export function CartProvider({ children }: any) {
+  const [cartNum, setCartNum] = useState(0)
+  return (
+  <CartNumContext.Provider value={{ cartNum, setCartNum }}>
+    {children}
+  </CartNumContext.Provider>)
+}
 
 const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
-
-  const [cartNum, setCartNum] = useState(0)
+  const { setCartNum } = useCart()
+  const { cartNum } = useCart()
 
   useEffect(() => {
-    setCartNum(cartNumFunction())
+    const cartContent: string = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
+    const parsed: any = cartContent ? JSON.parse(cartContent) : []
+
+    console.log(parsed)
+
+    let cartNumber = Array.isArray(parsed) ? parsed.length : 0
+    setCartNum(cartNumber)
   }, [])
 
   if (!btn1) btn1 = "#"
@@ -26,7 +41,7 @@ const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
         <a href={btn3} className="font-semibold after:block after:origin-bottom after:scale-x-0 after:border-b-3 after:border-b-textlight after:transition-all hover:after:scale-x-120 after:ease-in-out after:duration-200 hover:scale-110 transition-all duration-200 hover:font-bold">Kontakt</a>
         <a href={btn4} className="font-semibold after:block after:origin-bottom after:scale-x-0 after:border-b-3 after:border-b-textlight after:transition-all hover:after:scale-x-120 after:ease-in-out after:duration-200 hover:scale-110 transition-all duration-200 hover:font-bold">E-Shop</a>
       </div>
-      <a className="flex flex-between gap-1.5">
+      <a href="" className="flex flex-between gap-1.5 hover:opacity-80 hover:scale-110 transition">
         <p className="">{cartNum}</p>
         <ShoppingCart />
       </a>
@@ -35,3 +50,4 @@ const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
 }
 
 export default Navbar
+export const useCart = () => useContext(CartNumContext)

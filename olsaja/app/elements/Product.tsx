@@ -1,7 +1,13 @@
 import type { productProps } from "~/types"
+import { products } from "~/data"
+import { useCart } from "./Navbar"
+import { useEffect } from "react"
 
 
 const Product = ({name, image, variants, serial, price}: productProps) => {
+
+  const { cartNum, setCartNum } = useCart()
+
   if (!name) name = "404 DATA NENALEZENA"
   if (!image) image = ""
   if (!variants) variants = 1
@@ -9,7 +15,45 @@ const Product = ({name, image, variants, serial, price}: productProps) => {
   if (!price) price = NaN
   let button = "Do Košíku"
 
-  function buttonFun() { if (serial === "S11" || serial === "Sspecial") location.href = `?${serial}` }
+  function buttonFun() {
+    if (serial === "S11" || serial === "Sspecial") {
+      location.href = `?${serial}`
+    } else {
+      addToCart(serial, 1)
+    }
+  }
+
+  const cartAdder = (item: object, amount: number) => {
+      const cartContent: string = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
+      let parsed: any = cartContent ? JSON.parse(cartContent) : []
+  
+      parsed += item
+  
+      localStorage.setItem("cartContent", JSON.stringify(parsed))
+      setCartNum(parsed.length)
+  }
+  
+  const addToCart = (item: string, amount: number) => {
+      switch (item) {
+          case "11":
+              cartAdder(products[0], amount)
+              break
+          case "14":
+              break
+          case "13":
+              break
+          case "special":
+              break
+          case "S11":
+              break
+          case "Sspecial":
+              break
+      }
+  }
+
+  useEffect(() => {
+     const { setCartNum } = useCart();
+  })
 
   if (serial === "S11" || serial === "Sspecial") button = "Varianty"
 
