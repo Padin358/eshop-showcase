@@ -1,8 +1,16 @@
 import type { navbarProps } from "~/types"
 import { ShoppingCart } from "lucide-react"
 import { cartNumFunction } from "~/CartContext"
+import { useEffect, useState } from "react"
 
 const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
+
+  const [cartNum, setCartNum] = useState(0)
+
+  useEffect(() => {
+    setCartNum(cartNumFunction())
+  }, [])
+
   if (!btn1) btn1 = "#"
   if (!btn2) btn2 = "about"
   if (!btn3) btn3 = "contact"
@@ -19,7 +27,7 @@ const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
         <a href={btn4} className="font-semibold after:block after:origin-bottom after:scale-x-0 after:border-b-3 after:border-b-textlight after:transition-all hover:after:scale-x-120 after:ease-in-out after:duration-200 hover:scale-110 transition-all duration-200 hover:font-bold">E-Shop</a>
       </div>
       <a className="flex flex-between gap-1.5">
-        <p className="">0</p>
+        <p className="">{cartNum}</p>
         <ShoppingCart />
       </a>
     </div>

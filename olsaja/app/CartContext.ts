@@ -1,17 +1,17 @@
 export const cartNumFunction = () => {
-    let cartNum = 0
+    const cartContent: string = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
+    const parsed: any = cartContent ? JSON.parse(cartContent) : []
 
-    let cartContent: any = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
-    const parsed = JSON.parse(cartContent)
     console.log(parsed)
 
-    if(cartContent) {
-        cartContent.map(() => {
-            cartNum++
-        })
-    }
-
-    const cartNow = [{name: "idk", price: "idk"}, {name: "ajdontnou", price: "ajdontnou"}]
+    const cartNow = [
+        {name: "idk", price: "idk"},
+        {name: "ajdontnou", price: "ajdontnou"}
+    ]
 
     localStorage.setItem("cartContent", JSON.stringify(cartNow))
+
+    const cartNum: number = Array.isArray(parsed) ? parsed.length : 0
+
+    return cartNum
 }
