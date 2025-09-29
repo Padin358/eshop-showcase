@@ -1,12 +1,10 @@
 import type { productProps } from "~/types"
 import { products } from "~/data"
-import { useCart } from "./Navbar"
 import { useEffect } from "react"
 
 
 const Product = ({name, image, variants, serial, price}: productProps) => {
 
-  const { cartNum, setCartNum } = useCart()
 
   if (!name) name = "404 DATA NENALEZENA"
   if (!image) image = ""
@@ -14,46 +12,6 @@ const Product = ({name, image, variants, serial, price}: productProps) => {
   if (!serial) serial = "404 DATA NENALEZENA"
   if (!price) price = NaN
   let button = "Do Košíku"
-
-  function buttonFun() {
-    if (serial === "S11" || serial === "Sspecial") {
-      location.href = `?${serial}`
-    } else {
-      addToCart(serial, 1)
-    }
-  }
-
-  const cartAdder = (item: object, amount: number) => {
-      const cartContent: string = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
-      let parsed: any = cartContent ? JSON.parse(cartContent) : []
-  
-      parsed += item
-  
-      localStorage.setItem("cartContent", JSON.stringify(parsed))
-      setCartNum(parsed.length)
-  }
-  
-  const addToCart = (item: string, amount: number) => {
-      switch (item) {
-          case "11":
-              cartAdder(products[0], amount)
-              break
-          case "14":
-              break
-          case "13":
-              break
-          case "special":
-              break
-          case "S11":
-              break
-          case "Sspecial":
-              break
-      }
-  }
-
-  useEffect(() => {
-     const { setCartNum } = useCart();
-  })
 
   if (serial === "S11" || serial === "Sspecial") button = "Varianty"
 
@@ -72,7 +30,7 @@ const Product = ({name, image, variants, serial, price}: productProps) => {
             <p className="text-lg">Počet variant: {variants}</p>
             <p className="text-xs">Inventární číslo: {serial}</p>
           </div>
-          <button className="font-semibold text-xl text-textlight bg-primary p-2 rounded-lg cursor-pointer hover:bg-primarydark/90 transition-all duration-200" onClick={buttonFun}>{button}</button>
+          <button className="font-semibold text-xl text-textlight bg-primary p-2 rounded-lg cursor-pointer hover:bg-primarydark/90 transition-all duration-200">{button}</button>
         </div>
       </div>
     </div>

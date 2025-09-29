@@ -1,30 +1,19 @@
 import type { navbarProps } from "~/types"
 import { ShoppingCart } from "lucide-react"
-import { useEffect, useState, createContext, useContext } from "react"
-
-const CartNumContext = createContext<any>(null)
-
-export function CartProvider({ children }: any) {
-  const [cartNum, setCartNum] = useState(0)
-  return (
-  <CartNumContext.Provider value={{ cartNum, setCartNum }}>
-    {children}
-  </CartNumContext.Provider>)
-}
+import { useEffect, useState } from "react"
 
 const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
-  const { setCartNum } = useCart()
-  const { cartNum } = useCart()
+
+  const [cartNum, setCartNum] = useState()
 
   useEffect(() => {
     const cartContent: string = localStorage.getItem("cartContent") !== null ? localStorage.getItem("cartContent") !: ""
     const parsed: any = cartContent ? JSON.parse(cartContent) : []
-
+  
     console.log(parsed)
-
-    let cartNumber = Array.isArray(parsed) ? parsed.length : 0
-    setCartNum(cartNumber)
-  }, [])
+  
+    setCartNum(parsed.length)
+  })
 
   if (!btn1) btn1 = "#"
   if (!btn2) btn2 = "about"
@@ -50,4 +39,3 @@ const Navbar = ({btn1, btn2, btn3, btn4}: navbarProps) => {
 }
 
 export default Navbar
-export const useCart = () => useContext(CartNumContext)
